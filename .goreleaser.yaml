@@ -7,8 +7,8 @@ release:
   draft: true
 
 builds:
-  - binary: chronicle
-    id: chronicle
+  - binary: gosbom
+    id: gosbom
     env:
       - CGO_ENABLED=0
     goos:
@@ -24,18 +24,18 @@ builds:
       -w
       -s
       -extldflags '-static'
-      -X github.com/nextlinux/chronicle/internal/version.version={{.Version}}
-      -X github.com/nextlinux/chronicle/internal/version.gitCommit={{.Commit}}
-      -X github.com/nextlinux/chronicle/internal/version.buildDate={{.Date}}
-      -X github.com/nextlinux/chronicle/internal/version.gitTreeState={{.Env.BUILD_GIT_TREE_STATE}}
+      -X github.com/anchore/syft/internal/version.version={{.Version}}
+      -X github.com/anchore/syft/internal/version.gitCommit={{.Commit}}
+      -X github.com/anchore/syft/internal/version.buildDate={{.Date}}
+      -X github.com/anchore/syft/internal/version.gitTreeState={{.Env.BUILD_GIT_TREE_STATE}}
 
 nfpms:
   -
     formats:
       - deb
       - rpm
-    vendor: "nextlinux"
-    homepage: "https://github.com/nextlinux/chronicle"
+    vendor: "anchore"
+    homepage: "https://github.com/anchore/syft"
     maintainer: "NeXT Linux <connect@next-linux.systems>"
     description: "A fast changelog generator sourced from PRs and Issues"
     license: "Apache-2.0"
@@ -47,10 +47,10 @@ nfpms:
       linux: Linux
 dockers:
   - image_templates:
-      - nextlinux/chronicle:debug
-      - nextlinux/chronicle:{{.Tag}}-debug
-      - ghcr.io/nextlinux/chronicle:debug
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-debug
+      - anchore/syft:debug
+      - anchore/syft:{{.Tag}}-debug
+      - ghcr.io/anchore/syft:debug
+      - ghcr.io/anchore/syft:{{.Tag}}-debug
     goarch: amd64
     dockerfile: Dockerfile.debug
     use: buildx
@@ -62,10 +62,10 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/chronicle:debug-arm64v8
-      - nextlinux/chronicle:{{.Tag}}-debug-arm64v8
-      - ghcr.io/nextlinux/chronicle:debug-arm64v8
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-debug-arm64v8
+      - anchore/syft:debug-arm64v8
+      - anchore/syft:{{.Tag}}-debug-arm64v8
+      - ghcr.io/anchore/syft:debug-arm64v8
+      - ghcr.io/anchore/syft:{{.Tag}}-debug-arm64v8
     goarch: arm64
     dockerfile: Dockerfile.debug
     use: buildx
@@ -77,10 +77,10 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/chronicle:debug-ppc64le
-      - nextlinux/chronicle:{{.Tag}}-debug-ppc64le
-      - ghcr.io/nextlinux/chronicle:debug-ppc64le
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-debug-ppc64le
+      - anchore/syft:debug-ppc64le
+      - anchore/syft:{{.Tag}}-debug-ppc64le
+      - ghcr.io/anchore/syft:debug-ppc64le
+      - ghcr.io/anchore/syft:{{.Tag}}-debug-ppc64le
     goarch: ppc64le
     dockerfile: Dockerfile.debug
     use: buildx
@@ -92,10 +92,10 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/chronicle:debug-s390x
-      - nextlinux/chronicle:{{.Tag}}-debug-s390x
-      - ghcr.io/nextlinux/chronicle:debug-s390x
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-debug-s390x
+      - anchore/syft:debug-s390x
+      - anchore/syft:{{.Tag}}-debug-s390x
+      - ghcr.io/anchore/syft:debug-s390x
+      - ghcr.io/anchore/syft:{{.Tag}}-debug-s390x
     goarch: s390x
     dockerfile: Dockerfile.debug
     use: buildx
@@ -107,10 +107,10 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/chronicle:latest
-      - nextlinux/chronicle:{{.Tag}}
-      - ghcr.io/nextlinux/chronicle:latest
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}
+      - anchore/syft:latest
+      - anchore/syft:{{.Tag}}
+      - ghcr.io/anchore/syft:latest
+      - ghcr.io/anchore/syft:{{.Tag}}
     goarch: amd64
     dockerfile: Dockerfile
     use: buildx
@@ -122,8 +122,8 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/chronicle:{{.Tag}}-arm64v8
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-arm64v8
+      - anchore/syft:{{.Tag}}-arm64v8
+      - ghcr.io/anchore/syft:{{.Tag}}-arm64v8
     goarch: arm64
     dockerfile: Dockerfile
     use: buildx
@@ -135,8 +135,8 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/chronicle:{{.Tag}}-ppc64le
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-ppc64le
+      - anchore/syft:{{.Tag}}-ppc64le
+      - ghcr.io/anchore/syft:{{.Tag}}-ppc64le
     goarch: ppc64le
     dockerfile: Dockerfile
     use: buildx
@@ -148,8 +148,8 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/chronicle:{{.Tag}}-s390x
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-s390x
+      - anchore/syft:{{.Tag}}-s390x
+      - ghcr.io/anchore/syft:{{.Tag}}-s390x
     goarch: s390x
     dockerfile: Dockerfile
     use: buildx
@@ -161,46 +161,46 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
 docker_manifests:
-  - name_template: nextlinux/chronicle:latest
+  - name_template: anchore/syft:latest
     image_templates:
-      - nextlinux/chronicle:{{.Tag}}
-      - nextlinux/chronicle:{{.Tag}}-arm64v8
-      - nextlinux/chronicle:{{.Tag}}-ppc64le
-      - nextlinux/chronicle:{{.Tag}}-s390x
+      - anchore/syft:{{.Tag}}
+      - anchore/syft:{{.Tag}}-arm64v8
+      - anchore/syft:{{.Tag}}-ppc64le
+      - anchore/syft:{{.Tag}}-s390x
 
-  - name_template: nextlinux/chronicle:debug
-      - nextlinux/chronicle:{{.Tag}}-debug
-      - nextlinux/chronicle:{{.Tag}}-debug-arm64v8
-      - nextlinux/chronicle:{{.Tag}}-debug-ppc64le
-      - nextlinux/chronicle:{{.Tag}}-debug-s390x
+  - name_template: anchore/syft:debug
+      - anchore/syft:{{.Tag}}-debug
+      - anchore/syft:{{.Tag}}-debug-arm64v8
+      - anchore/syft:{{.Tag}}-debug-ppc64le
+      - anchore/syft:{{.Tag}}-debug-s390x
 
-  - name_template: nextlinux/chronicle:{{.Tag}}
+  - name_template: anchore/syft:{{.Tag}}
     image_templates:
-      - nextlinux/chronicle:{{.Tag}}
-      - nextlinux/chronicle:{{.Tag}}-arm64v8
-      - nextlinux/chronicle:{{.Tag}}-ppc64le
-      - nextlinux/chronicle:{{.Tag}}-s390x
+      - anchore/syft:{{.Tag}}
+      - anchore/syft:{{.Tag}}-arm64v8
+      - anchore/syft:{{.Tag}}-ppc64le
+      - anchore/syft:{{.Tag}}-s390x
 
-  - name_template: ghcr.io/nextlinux/chronicle:latest
+  - name_template: ghcr.io/anchore/syft:latest
     image_templates:
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-arm64v8
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-ppc64le
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-s390x
+      - ghcr.io/anchore/syft:{{.Tag}}
+      - ghcr.io/anchore/syft:{{.Tag}}-arm64v8
+      - ghcr.io/anchore/syft:{{.Tag}}-ppc64le
+      - ghcr.io/anchore/syft:{{.Tag}}-s390x
 
-  - name_template: ghcr.io/nextlinux/chronicle:debug
+  - name_template: ghcr.io/anchore/syft:debug
     image_templates:
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-debug
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-debug-arm64v8
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-debug-ppc64le
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-debug-s390x
+      - ghcr.io/anchore/syft:{{.Tag}}-debug
+      - ghcr.io/anchore/syft:{{.Tag}}-debug-arm64v8
+      - ghcr.io/anchore/syft:{{.Tag}}-debug-ppc64le
+      - ghcr.io/anchore/syft:{{.Tag}}-debug-s390x
 
-  - name_template: ghcr.io/nextlinux/chronicle:{{.Tag}}
+  - name_template: ghcr.io/anchore/syft:{{.Tag}}
     image_templates:
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-arm64v8
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-ppc64le
-      - ghcr.io/nextlinux/chronicle:{{.Tag}}-s390x
+      - ghcr.io/anchore/syft:{{.Tag}}
+      - ghcr.io/anchore/syft:{{.Tag}}-arm64v8
+      - ghcr.io/anchore/syft:{{.Tag}}-ppc64le
+      - ghcr.io/anchore/syft:{{.Tag}}-s390x
 
 universal_binaries:
   - replace: true

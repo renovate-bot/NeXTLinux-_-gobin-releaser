@@ -1,6 +1,6 @@
 package main
 
-import "github.com/nextlinux/chronicle/cmd"
+import "github.com/anchore/syft"
 
 func main() {
 	cmd.Execute()
